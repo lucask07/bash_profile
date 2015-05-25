@@ -1,30 +1,4 @@
-
-# added by Anaconda 1.8.0 installer
-export PATH="/Users/lucas/anaconda/bin:$PATH"
-export PATH=/usr/local/bin:$PATH
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-PYTHONPATH="/Users/lucas/anaconda/bin/"
-
-PATH="/Applications/lpcxpresso_7.0.0_92/lpcxpresso/bin:${PATH}"
-export PATH
-
-PATH="/Applications/lpcxpresso_7.0.0_92/lpcxpresso/tools/bin:${PATH}"
-export PATH
-
-PATH="/Applications/lpcxpresso_7.0.0_92/lpcxpresso/lpcxpresso.app/Contents/MacOS:${PATH}"
-export PATH
-
-##
-# Your previous /Users/lucas/.bash_profile file was backed up as /Users/lucas/.bash_profile.macports-saved_2014-08-24_at_09:58:05
-##
-
-# MacPorts Installer addition on 2014-08-24_at_09:58:05: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
+source .computer_paths
 
 #  ---------------------------------------------------------------------------
 #
@@ -82,7 +56,7 @@ alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
-cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+# cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -121,6 +95,8 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 
 # Make history expansion (eg !1) print out rather than directly run
 shopt -s histverify  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
