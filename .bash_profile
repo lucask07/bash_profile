@@ -119,6 +119,8 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 #   ------------------------------------------------------------
     showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
 
+# Make history expansion (eg !1) print out rather than directly run
+shopt -s histverify  
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
