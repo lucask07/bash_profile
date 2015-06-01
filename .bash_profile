@@ -52,6 +52,7 @@ source ~/.computer_paths
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
+alias sudo='sudo '
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
@@ -78,6 +79,8 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+
+alias preview='open -a Preview'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -160,7 +163,7 @@ ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the curr
 ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
 ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
 
-alias infiles="grep -rnw . -e "                 # search for text in files
+alias infiles="grep -rn . -e "                 # search for text in files
 
 
 #   spotlight: Search for a file using MacOS Spotlight's metadata
