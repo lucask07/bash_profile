@@ -81,6 +81,7 @@ ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in Ma
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
 alias preview='open -a Preview'
+alias csvlook = 'column -s, -t < "$1" | less -#2 -N -S'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -307,3 +308,8 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   e.g.: hdiutil create -size 10m 10MB.dmg
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
+
+export DYLD_LIBRARY_PATH=/System/Library/Frameworks/Python.framework/Versions/2.7/lib:$DYLD_LIBRARY_PATH 
+
+# added by Anaconda2 4.0.0 installer
+export PATH="/Users/lkoerner/anaconda/bin:$PATH"
