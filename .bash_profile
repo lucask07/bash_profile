@@ -1,4 +1,5 @@
-source .computer_paths
+
+source ~/.computer_paths
 
 #  ---------------------------------------------------------------------------
 #
@@ -51,12 +52,13 @@ source .computer_paths
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
 
+alias sudo='sudo '
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias less='less -FSRXc'                    # Preferred 'less' implementation
-cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
+# cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
@@ -79,6 +81,8 @@ ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in Ma
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
+alias preview='open -a Preview'
+
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
@@ -96,6 +100,8 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 
 # Make history expansion (eg !1) print out rather than directly run
 shopt -s histverify  
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
@@ -158,7 +164,7 @@ ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the curr
 ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
 ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
 
-alias infiles="grep -rnw . -e "                 # search for text in files
+alias infiles="grep -rn . -e "                 # search for text in files
 
 
 #   spotlight: Search for a file using MacOS Spotlight's metadata
