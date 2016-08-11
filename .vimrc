@@ -24,14 +24,26 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/indentpython.vim'
+set encoding=utf-8
+Plugin 'Valloric/YouCompleteMe'
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-
+let python_highlight_all=1
+syntax on
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -39,6 +51,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Code folding
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -46,24 +59,19 @@ set foldlevel=99
 nnoremap <space> za
 
 au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix 
 
 au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 
 
-Plugin 'vim-scripts/indentpython.vim'
-
-set encoding=utf-8
-
-Plugin 'Valloric/YouCompleteMe'
 
 "python with virtualenv support
 py << EOF
@@ -75,29 +83,15 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
-let python_highlight_all=1
-syntax on
-
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-
 if has('gui_running')
   set background=dark
   colorscheme solarized
 endif
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
+" BREAKPOINTS
 " type ,p to insert breakpoint. ^[ is at the end.  Insert with ctrl v and then esc
 " (the github web gui doesn't display control characters, but it is there)
-nnoremap <leader>p oimport ipdb;ipdb.set_trace()^[
+nnoremap <leader>p oimport ipdb;ipdb.set_trace()<Esc>
 
 " type ,W to wipe the whole line clean but keep the \n
 nnoremap <leader>W 0d$

@@ -79,10 +79,11 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+# alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 alias preview='open -a Preview'
-alias csvlook = 'column -s, -t < "$1" | less -#2 -N -S'
+csvlook () { column -s, -t < "$1" | less -#2 -N -S; }
+alias blah='function _blah(){ echo "First: $1"; echo "Second: $2"; };_blah'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -329,3 +330,5 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 # added by Anaconda2 4.1.1 installer
 export PATH="//anaconda/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
