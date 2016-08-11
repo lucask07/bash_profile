@@ -77,6 +77,7 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
@@ -301,3 +302,20 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   e.g.: hdiutil create -size 10m 10MB.dmg
 #   the above create files that are almost all zeros - if random bytes are desired
 #   then use: ~/Dev/Perl/randBytes 1048576 > 10MB.dat
+
+# Setting PATH for Python 3.5
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
+export PATH
+
+##
+# Your previous /Users/lucas/.bash_profile file was backed up as /Users/lucas/.bash_profile.macports-saved_2015-12-11_at_18:52:31
+##
+
+# MacPorts Installer addition on 2015-12-11_at_18:52:31: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# added by Anaconda2 4.1.1 installer
+export PATH="//anaconda/bin:$PATH"
